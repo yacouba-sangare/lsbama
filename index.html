@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSBAMA — Lycée Spécial Barrasson Marico de Dioïla</title>
+  <meta name="description" content="Site officiel du Lycée Spécial Barrasson Marico de Dioïla (LSBAMA) — Un autre regard sur la formation. Actualités, filières, inscriptions.">
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  <link rel="preload" as="image" href="images/accueil.webp">
+
+  <!-- Thème appliqué avant le CSS pour éviter le flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('lsb-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       SPRITE SVG : toutes les icônes natives du site
+       ========================================================= -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 4V15L16.5 3.5z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.562Z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  </svg>
+
+  <a class="skip-link" data-href="#accueil">Aller au contenu</a>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+  <!-- ======= BARRE SUPÉRIEURE ======= -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><a data-href="tel:+22320404040">+223 20 40 40 40</a></span>
+        <span><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><a data-href="mailto:contact@lsbama.ml">contact@lsbama.ml</a></span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-badge"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> Inscriptions 2026-2027 ouvertes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= HEADER ======= -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a data-href="#accueil" class="brand">
+        <img src="images/logo.webp" alt="Logo du LSBAMA" class="brand-logo">
+        <span class="brand-text">
+          <strong>LSBAMA</strong>
+          <small>Dioïla · Mali</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a data-href="#accueil" class="nav-link active">Accueil</a></li>
+          <li><a data-href="#lycee" class="nav-link">Le lycée</a></li>
+          <li><a data-href="#formations" class="nav-link">Formations</a></li>
+          <li><a data-href="#actualites" class="nav-link">Actualités</a></li>
+          <li><a data-href="#inscriptions" class="nav-link">Inscriptions</a></li>
+          <li><a data-href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Basculer entre thème clair et sombre">
+          <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a data-href="#inscriptions" class="btn btn-primary btn-sm">S'inscrire</a>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= MENU MOBILE ======= -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Navigation mobile">
+      <a data-href="#accueil" class="mm-link" style="--i:1"><span class="mm-num">01</span> Accueil</a>
+      <a data-href="#lycee" class="mm-link" style="--i:2"><span class="mm-num">02</span> Le lycée</a>
+      <a data-href="#formations" class="mm-link" style="--i:3"><span class="mm-num">03</span> Formations</a>
+      <a data-href="#actualites" class="mm-link" style="--i:4"><span class="mm-num">04</span> Actualités</a>
+      <a data-href="#inscriptions" class="mm-link" style="--i:5"><span class="mm-num">05</span> Inscriptions</a>
+      <a data-href="#contact" class="mm-link" style="--i:6"><span class="mm-num">06</span> Contact</a>
+    </nav>
+    <div class="mm-foot">
+      <a data-href="tel:+22320404040"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> +223 20 40 40 40</a>
+      <a data-href="https://wa.me/22320201010"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> WhatsApp</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ======= HERO ======= -->
+    <section class="hero" id="accueil">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <p class="hero-eyebrow reveal"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Dioïla · Région de Koulikoro · Mali</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="scramble" data-text="Un autre regard">Un autre regard</span></span>
+          <span class="line accent"><span class="scramble" data-text="sur la formation.">sur la formation.</span></span>
+        </h1>
+        <p class="hero-text reveal" style="--d:.15s">
+          Au cœur de Dioïla, le Lycée Spécial Barrasson Marico accompagne chaque élève
+          vers l'excellence : un encadrement rigoureux, des méthodes modernes et une
+          ouverture sur le monde.
+        </p>
+        <div class="hero-cta reveal" style="--d:.25s">
+          <a data-href="#lycee" class="btn btn-primary">Découvrir le lycée ↓</a>
+          <a data-href="images/fullpage.pdf" data-download class="btn btn-ghost"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Brochure (PDF)</a>
+        </div>
+        <div class="hero-chips reveal" style="--d:.35s">
+          <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg> Rentrée : 02 octobre 2026</span>
+          <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg> 92% de réussite au BAC</span>
+          <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg> Internat disponible</span>
+        </div>
+      </div>
+
+      <!-- Badge circulaire rotatif + logo parfaitement centré -->
+      <div class="hero-badge" aria-hidden="true">
+        <svg class="hero-badge-ring" viewBox="0 0 100 100">
+          <defs>
+            <path id="circlePath" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/>
+          </defs>
+          <text><textPath href="#circlePath">LYCÉE SPÉCIAL BARRASSON MARICO • DIOÏLA • </textPath></text>
+        </svg>
+        <span class="hero-badge-core"><img src="images/logo.webp" alt=""></span>
+      </div>
+
+      <!-- Bandeau défilant -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span class="ticker-group">Excellence ✦ Discipline ✦ Travail ✦ Citoyenneté ✦ Innovation ✦ Ouverture ✦&nbsp;</span>
+          <span class="ticker-group">Excellence ✦ Discipline ✦ Travail ✦ Citoyenneté ✦ Innovation ✦ Ouverture ✦&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= CHIFFRES CLÉS ======= -->
+    <section class="stats" aria-label="Chiffres clés du lycée">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-num"><span data-count="850">0</span>+</span>
+          <span class="stat-label">Élèves inscrits</span>
+        </div>
+        <div class="stat reveal" style="--d:.1s">
+          <span class="stat-num"><span data-count="42">0</span></span>
+          <span class="stat-label">Enseignants dévoués</span>
+        </div>
+        <div class="stat reveal" style="--d:.2s">
+          <span class="stat-num"><span data-count="92">0</span>%</span>
+          <span class="stat-label">Taux de réussite au BAC</span>
+        </div>
+        <div class="stat reveal" style="--d:.3s">
+          <span class="stat-num"><span data-count="15">0</span>+</span>
+          <span class="stat-label">Années d'excellence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= ACCÈS RAPIDES ======= -->
+    <section class="quick" aria-label="Accès rapides">
+      <div class="container quick-grid">
+        <a data-href="#" class="quick-card reveal">
+          <span class="quick-ico"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <span class="quick-txt"><strong>Emploi du temps</strong><small>Consultez les horaires</small></span>
+          <span class="quick-arrow">→</span>
+        </a>
+        <a data-href="#" class="quick-card reveal" style="--d:.08s">
+          <span class="quick-ico"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <span class="quick-txt"><strong>Résultats & bulletins</strong><small>Suivi des évaluations</small></span>
+          <span class="quick-arrow">→</span>
+        </a>
+        <a data-href="#" class="quick-card reveal" style="--d:.16s">
+          <span class="quick-ico"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span>
+          <span class="quick-txt"><strong>Bibliothèque</strong><small>Ressources & lectures</small></span>
+          <span class="quick-arrow">→</span>
+        </a>
+        <a data-href="#" class="quick-card reveal" style="--d:.24s">
+          <span class="quick-ico"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg></span>
+          <span class="quick-txt"><strong>Espace élèves</strong><small>Portail étudiant</small></span>
+          <span class="quick-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======= LE LYCÉE ======= -->
+    <section class="section" id="lycee">
+      <div class="container about-grid">
+        <div class="about-sticky reveal">
+          <span class="section-tag">Le lycée</span>
+          <h2 class="section-title">
+            <span class="mask"><span class="mask-inner">Une école pas</span></span>
+            <span class="mask" style="--d:.12s"><span class="mask-inner">comme les autres</span></span>
+          </h2>
+          <p>
+            Fondé sur la conviction que chaque élève possède un talent unique, le
+            Lycée Spécial Barrasson Marico (LSBAMA) propose un enseignement exigeant,
+            ancré dans les réalités maliennes et ouvert sur le monde.
+          </p>
+          <p>
+            Notre approche repose sur un accompagnement personnalisé, des méthodes
+            pédagogiques modernes et une discipline bienveillante qui fait la
+            réputation de l'établissement.
+          </p>
+          <a data-href="#contact" class="btn btn-outline">Prendre contact</a>
+        </div>
+
+        <div class="about-flow">
+          <article class="pillar reveal">
+            <span class="pillar-ico"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg></span>
+            <div>
+              <h3>Excellence académique</h3>
+              <p>Des programmes rigoureux, des évaluations régulières et un suivi individualisé pour amener chaque élève au meilleur de ses capacités.</p>
+            </div>
+          </article>
+          <article class="pillar reveal" style="--d:.1s">
+            <span class="pillar-ico"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <div>
+              <h3>Encadrement de proximité</h3>
+              <p>Des effectifs maîtrisés et une équipe pédagogique disponible, qui connaît chaque élève par son nom et son parcours.</p>
+            </div>
+          </article>
+          <article class="pillar reveal" style="--d:.2s">
+            <span class="pillar-ico"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <div>
+              <h3>Ouverture citoyenne</h3>
+              <p>Culture générale, langues étrangères, sports et engagement communautaire : nous formons des citoyens complets.</p>
+            </div>
+          </article>
+          <div class="vision reveal" style="--d:.3s">
+            « Former des esprits libres, rigoureux et utiles à leur communauté. »
+            <small>— La vision du LSBAMA</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= FORMATIONS ======= -->
+    <section class="section bg-alt" id="formations">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Formations</span>
+          <h2 class="section-title"><span class="mask"><span class="mask-inner">Nos filières d'enseignement</span></span></h2>
+          <p class="section-sub">Quatre filières complémentaires pour préparer chaque élève au BAC malien et à l'enseignement supérieur.</p>
+        </div>
+
+        <div class="formations-grid">
+          <article class="formation-card reveal">
+            <span class="formation-num">01</span>
+            <span class="formation-ico"><svg class="ico" aria-hidden="true"><use href="#i-calc"/></svg></span>
+            <h3>Sciences Exactes</h3>
+            <p>La filière des futurs ingénieurs, médecins et chercheurs : rigueur, logique et méthode scientifique.</p>
+            <div class="tags"><span>Mathématiques</span><span>Physique-Chimie</span><span>SVT</span></div>
+            <a data-href="#inscriptions" class="formation-link">En savoir plus →</a>
+          </article>
+          <article class="formation-card reveal" style="--d:.1s">
+            <span class="formation-num">02</span>
+            <span class="formation-ico"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <h3>Sciences Humaines</h3>
+            <p>Comprendre les sociétés d'hier et d'aujourd'hui pour devenir un acteur éclairé de demain.</p>
+            <div class="tags"><span>Histoire-Géographie</span><span>Philosophie</span><span>SES</span></div>
+            <a data-href="#inscriptions" class="formation-link">En savoir plus →</a>
+          </article>
+          <article class="formation-card reveal" style="--d:.2s">
+            <span class="formation-num">03</span>
+            <span class="formation-ico"><svg class="ico" aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <h3>Lettres & Langues</h3>
+            <p>Maîtriser le français, l'anglais et l'art de communiquer, à l'écrit comme à l'oral.</p>
+            <div class="tags"><span>Français</span><span>Anglais</span><span>Littérature</span></div>
+            <a data-href="#inscriptions" class="formation-link">En savoir plus →</a>
+          </article>
+          <article class="formation-card reveal" style="--d:.3s">
+            <span class="formation-num">04</span>
+            <span class="formation-ico"><svg class="ico" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+            <h3>Technologies & Arts</h3>
+            <p>Informatique, créativité et esprit d'entreprendre pour préparer les métiers de demain.</p>
+            <div class="tags"><span>Informatique</span><span>Arts plastiques</span><span>Entrepreneuriat</span></div>
+            <a data-href="#inscriptions" class="formation-link">En savoir plus →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= MOT DU DIRECTEUR ======= -->
+    <section class="section" id="mot-du-directeur">
+      <div class="container directeur-grid">
+        <figure class="photo-frame reveal">
+          <img src="images/image.webp" alt="Le directeur du LSBAMA" loading="lazy">
+          <figcaption class="photo-badge">LSBAMA · Dioïla</figcaption>
+        </figure>
+        <div class="directeur-text reveal" style="--d:.12s">
+          <span class="section-tag">Mot du directeur</span>
+          <h2 class="section-title"><span class="mask"><span class="mask-inner">Une promesse d'avenir</span></span></h2>
+          <blockquote class="directeur-quote">
+            Chaque élève qui franchit les portes du LSBAMA porte en lui une promesse
+            d'avenir. Notre devoir est de lui offrir les outils, la discipline et la
+            confiance nécessaires pour la tenir. Ici, nous n'instruisons pas seulement
+            des élèves : nous formons des femmes et des hommes capables de bâtir le
+            Mali de demain.
+          </blockquote>
+          <p class="sign">— Le Directeur, Lycée Spécial Barrasson Marico</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= ACTUALITÉS ======= -->
+    <section class="section bg-alt" id="actualites">
+      <div class="container">
+        <div class="news-top reveal">
+          <div class="section-head" style="margin-bottom:0">
+            <span class="section-tag">Actualités</span>
+            <h2 class="section-title"><span class="mask"><span class="mask-inner">La vie du lycée</span></span></h2>
+          </div>
+          <a data-href="#" class="link-more">Toutes les actualités →</a>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card reveal">
+            <div class="news-visual v1"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg></span><span class="news-date">02 sept. 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Vie scolaire</span>
+              <h3>Rentrée 2026-2027 : les dates officielles dévoilées</h3>
+              <p>Le calendrier complet de la rentrée, journée d'accueil des nouveaux élèves incluse.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+          <article class="news-card reveal" style="--d:.08s">
+            <div class="news-visual v2"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span><span class="news-date">15 juil. 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Résultats</span>
+              <h3>BAC 2026 : un taux de réussite record pour le LSBAMA</h3>
+              <p>Nos terminales signent leur meilleure performance avec 92% d'admis toutes séries confondues.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+          <article class="news-card reveal" style="--d:.16s">
+            <div class="news-visual v3"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-door"/></svg></span><span class="news-date">28 août 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Événements</span>
+              <h3>Journée portes ouvertes : venez découvrir le campus</h3>
+              <p>Visites guidées, rencontres avec les enseignants et démonstrations au programme.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+          <article class="news-card reveal" style="--d:.24s">
+            <div class="news-visual v4"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-calc"/></svg></span><span class="news-date">10 juin 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Compétitions</span>
+              <h3>Concours général : nos élèves brillent en mathématiques</h3>
+              <p>Trois élèves du lycée se distinguent au concours national et décrochent un podium.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+          <article class="news-card reveal" style="--d:.32s">
+            <div class="news-visual v5"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-monitor"/></svg></span><span class="news-date">05 mai 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Infrastructures</span>
+              <h3>Un nouveau laboratoire informatique pour la rentrée</h3>
+              <p>Une salle équipée de 30 ordinateurs pour renforcer l'enseignement du numérique.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+          <article class="news-card reveal" style="--d:.4s">
+            <div class="news-visual v6"><span class="news-ico"><svg class="ico" aria-hidden="true"><use href="#i-music"/></svg></span><span class="news-date">22 avr. 2026</span></div>
+            <div class="news-body">
+              <span class="news-cat">Culture</span>
+              <h3>Semaine culturelle : la jeunesse de Dioïla à l'honneur</h3>
+              <p>Théâtre, musique et exposition ont rythmé une semaine riche en émotions.</p>
+              <a data-href="#" class="news-link">Lire la suite →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= INSCRIPTIONS ======= -->
+    <section class="section register" id="inscriptions">
+      <div class="container register-grid">
+        <div class="register-info reveal">
+          <span class="section-tag light">Inscriptions 2026-2027</span>
+          <h2 class="section-title"><span class="mask"><span class="mask-inner">Rejoignez le LSBAMA</span></span></h2>
+          <p>
+            Les inscriptions pour la nouvelle année scolaire sont officiellement ouvertes.
+            Les places étant limitées, nous vous encourageons à déposer votre dossier
+            dès que possible.
+          </p>
+          <div class="register-cta">
+            <a data-href="images/fullpage.pdf" data-download class="btn btn-primary"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Télécharger le dossier (PDF)</a>
+            <span class="chip light-chip"><svg class="ico" aria-hidden="true"><use href="#i-hourglass"/></svg> Clôture : 30 septembre 2026</span>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal" style="--d:.05s">
+            <span class="step-num">1</span>
+            <div>
+              <h3>Retirez votre dossier</h3>
+              <p>Au secrétariat du lycée, ou téléchargez-le directement en ligne au format PDF.</p>
+            </div>
+          </li>
+          <li class="step reveal" style="--d:.15s">
+            <span class="step-num">2</span>
+            <div>
+              <h3>Complétez et déposez</h3>
+              <p>Renvoyez le dossier accompagné des pièces demandées avant la date de clôture.</p>
+            </div>
+          </li>
+          <li class="step reveal" style="--d:.25s">
+            <span class="step-num">3</span>
+            <div>
+              <h3>Entretien & confirmation</h3>
+              <p>Un échange avec l'administration valide définitivement l'inscription de l'élève.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======= FAQ ======= -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head center reveal">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title"><span class="mask"><span class="mask-inner">Questions fréquentes</span></span></h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Quelles sont les conditions d'admission au LSBAMA ?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>L'admission se fait sur étude du dossier scolaire (bulletins, relevé de notes du DEF) suivie d'un entretien avec l'équipe pédagogique. Texte à compléter avec les vraies conditions.</p></div>
+          </div>
+          <div class="faq-item reveal" style="--d:.06s">
+            <button class="faq-q" aria-expanded="false">Quels sont les frais de scolarité ?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Les frais varient selon la filière et le niveau. La grille complète est disponible au secrétariat ou par téléphone. Texte à compléter.</p></div>
+          </div>
+          <div class="faq-item reveal" style="--d:.12s">
+            <button class="faq-q" aria-expanded="false">Le lycée dispose-t-il d'un internat ?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Oui, un internat encadré accueille les élèves venus d'autres localités, dans la limite des places disponibles. Texte à compléter.</p></div>
+          </div>
+          <div class="faq-item reveal" style="--d:.18s">
+            <button class="faq-q" aria-expanded="false">Quelles sont les horaires des cours ?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Les cours ont lieu du lundi au vendredi de 7h30 à 17h00, avec une permanence le samedi matin de 8h00 à 13h00. Texte à compléter.</p></div>
+          </div>
+          <div class="faq-item reveal" style="--d:.24s">
+            <button class="faq-q" aria-expanded="false">Comment suivre son dossier d'inscription à distance ?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Contactez le secrétariat par téléphone ou WhatsApp pour suivre l'avancement de votre dossier sans vous déplacer. Texte à compléter.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section class="section bg-alt" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title"><span class="mask"><span class="mask-inner">Parlons de votre avenir</span></span></h2>
+          <p class="section-sub">Une question sur les inscriptions, les filières ou la vie scolaire ? Écrivez-nous ou passez directement au campus.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="field">
+              <label for="nom">Nom complet <span class="req">*</span></label>
+              <input type="text" id="nom" name="nom" placeholder="" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+              </div>
+              <div class="field">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" name="tel" placeholder="+223 ...">
+              </div>
+            </div>
+            <div class="field">
+              <label for="sujet">Sujet</label>
+              <select id="sujet" name="sujet">
+                <option>Inscriptions</option>
+                <option>Formations & filières</option>
+                <option>Vie scolaire</option>
+                <option>Autre demande</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message <span class="req">*</span></label>
+              <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer le message →</button>
+          </form>
+
+          <div class="contact-side">
+            <div class="info-card reveal">
+              <span class="info-ico"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <div><strong>Téléphone fixe</strong><a data-href="tel:+22320404040">+223 20 40 40 40</a></div>
+            </div>
+            <div class="info-card reveal" style="--d:.08s">
+              <span class="info-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <div><strong>WhatsApp</strong><a data-href="https://wa.me/22320201010">+223 20 20 10 10</a></div>
+            </div>
+            <div class="info-card reveal" style="--d:.16s">
+              <span class="info-ico"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span>
+              <div><strong>Horaires</strong><small>Lun–Ven : 7h30–17h30 · Sam : 8h–13h</small></div>
+            </div>
+            <a class="map-card reveal" style="--d:.24s" data-href="https://maps.app.goo.gl/aJq3uXxw1DhCpfbs6?g_st=aw">
+              <span class="map-pin"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <strong>Dioïla — Région de Koulikoro, Mali</strong>
+              <small>Ouvrir dans Google Maps ↗</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a data-href="#accueil" class="brand">
+          <img src="images/logo.webp" alt="Logo du LSBAMA" class="brand-logo">
+          <span class="brand-text"><strong>LSBAMA</strong><small>Dioïla · Mali</small></span>
+        </a>
+        <p>Un autre regard sur la formation. Excellence, discipline et ouverture depuis plus de 15 ans au service de la jeunesse de Dioïla.</p>
+        <div class="footer-social">
+          <a data-href="#" aria-label="Facebook" title="Facebook">f</a>
+          <a data-href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a data-href="https://wa.me/22320201010" aria-label="WhatsApp" title="WhatsApp">wa</a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Liens du lycée">
+        <h4>Le lycée</h4>
+        <a data-href="#accueil">Accueil</a>
+        <a data-href="#lycee">Qui sommes-nous ?</a>
+        <a data-href="#formations">Nos filières</a>
+        <a data-href="#mot-du-directeur">Mot du directeur</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Liens pratiques">
+        <h4>Pratique</h4>
+        <a data-href="#actualites">Actualités</a>
+        <a data-href="#inscriptions">Inscriptions</a>
+        <a data-href="#faq">Questions fréquentes</a>
+        <a data-href="images/fullpage.pdf" data-download>Brochure (PDF)</a>
+      </nav>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a data-href="tel:+22320404040"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> +223 20 40 40 40</a>
+        <a data-href="mailto:contact@lsbama.ml"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> contact@lsbama.ml</a>
+        <p class="footer-adress"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Dioïla, Région de Koulikoro<br>Mali</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© <span data-year>2026</span> LSBAMA — Lycée Spécial Barrasson Marico de Dioïla.</p>
+        <p>Projet réalisé par <strong>Yacouba</strong> · Étudiant FST Settat <svg class="ico ico-xs" aria-hidden="true"><use href="#i-cap"/></svg></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Retour en haut de page">↑</button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-ico" aria-hidden="true"></span>
+    <span class="toast-msg"></span>
+  </div>
+
+  <noscript>
+    <style>.reveal{opacity:1 !important;transform:none !important}.mask-inner{transform:none !important}</style>
+  </noscript>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
